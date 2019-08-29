@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: best9_app_production
-  username: best9_app
-  password: <%= ENV['BEST9_APP_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
