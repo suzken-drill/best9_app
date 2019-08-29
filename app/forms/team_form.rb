@@ -13,13 +13,13 @@ class TeamForm
     super
   end
 
-  validates :team_name, presence: {message: I18n.t(:team_name)}
-  validates :team_author, presence: {message: I18n.t(:team_author)}
+  validates :team_name, presence: {message: I18n.t(:team_name, scope: :message)}
+  validates :team_author, presence: {message: I18n.t(:team_author, scope: :message)}
   validate :member_name_presence?
 
   def member_name_presence?
     self.member_names.each_with_index do |value, i|
-      errors.add(:member_names, I18n.t(:member_name, order: i + 1)) if value.blank?
+      errors.add(:member_names, I18n.t(:member_name, order: i + 1, scope: :message)) if value.blank?
     end
   end
 

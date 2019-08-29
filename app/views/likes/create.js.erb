@@ -1,0 +1,11 @@
+$('.like_btn .like_count').html('<%= @like_num %>');
+$('div.like_btn').toggleClass('already');
+if($('div.like_btn').hasClass('btn-primary')) {
+  $('div.like_btn').removeClass('btn-primary');
+  $('div.like_btn').addClass('btn-secondary');
+} else if($('div.like_btn').hasClass('btn-secondary')) {
+  $('div.like_btn').removeClass('btn-secondary');
+  $('div.like_btn').addClass('btn-primary');
+} else {
+  $('div.like_btn').addClass('btn-primary');
+}

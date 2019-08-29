@@ -1,3 +1,150 @@
 // Place all the styles related to the Team controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "constant";
+
+.contents {
+	.sns_btn {
+		margin: 0 auto 50px auto;
+		a {
+			display: inline;
+			position: relative;
+			font-family: Arial;
+			font-size: 14px;
+			font-weight: bold;
+			text-align: center;
+				text-decoration: none;
+			color: #FFF;
+			border-radius: 5px;
+			padding: 14px 80px;
+		}
+		.facebook {
+			background-color: #2e4a88;
+			box-shadow: 0 4px 0 #1B3D82;
+			text-shadow: 0 -1px -1px #1B3D82;
+		}
+		.facebook:hover {
+			background-color: #354F84;
+			color: #FFF;
+		}
+		.facebook:active {
+			top: 2px;
+			box-shadow: 0 2px 0 #1B3D82;
+		}
+		.twitter {
+			background-color: #008DDE;
+			box-shadow: 0 4px 0 #0078BD;
+		}
+		.twitter:active {
+			top: 2px;
+			box-shadow: 0 2px 0 #0078BD;
+		}
+		.twitter:hover {
+			background-color: #1397D8;
+			color: #FFF;
+		}
+		.line {
+			background-color: #35de00;
+			box-shadow: 0 4px 0 #2dc715;
+		}
+		.line:active {
+			top: 2px;
+			box-shadow: 0 2px 0 #2dc715;
+		}
+		.line:hover {
+			background-color: #35de00ed;
+			color: #FFF;
+		}
+	}
+	h2 {
+		display: inline-block;
+		width: 85%;
+		padding: 0;
+		margin: 0 25px 25px 0;
+		.sub-header {
+			font-size: 0.9rem;
+			line-height: 1.4rem;
+			color: $back-btn-color;
+		}
+	}
+	.like_btn {
+		float: right;
+		i {
+			margin-right: 0.5rem;
+		}
+	}
+	.members {
+		margin-bottom: 25px;
+		table {
+			width: 100%;
+			th {
+				font-weight: 400;
+				text-align: center;
+				color: $logo-color;
+				border-bottom: 1px solid $footer-background;
+			}
+			th.order {
+				width: 8%;
+			}
+			th.name {
+				width: 60%;
+			}
+			th.memo {
+				width: 32%;
+			}
+			td {
+				padding: 5px;
+				border-bottom: 1px solid $footer-background;
+			}
+			td.order {
+				text-align: center;
+				text-decoration: underline;
+				text-decoration-color: $logo-color;
+			}
+		}
+	}
+	h3.head-title {
+		color: $logo-color;
+		font-size: 1rem;
+	}
+	.discription {
+		p {
+			border: 1px solid $footer-background;
+			border-radius: 5px;
+			padding: 15px;
+		}
+	}
+	.comments {
+		ul.comment {
+			list-style-type: none;
+			padding: 0;
+			margin: 0 0 25px 0;
+			li {
+				border: 1px solid $footer-background;
+				border-radius: 5px;
+				padding: 15px;
+				margin-bottom: 8px;
+				.head {
+					position: relative;
+					font-size: 0.9rem;
+					color: $form-border-color;
+					padding: 0;
+					margin: 0 0 8px 0;
+				}
+				.head:after {
+					position: absolute;
+					content: " ";
+					display: block;
+					border-bottom: solid 1px $form-border-color;
+					bottom: -3px;
+					width: 50%;
+				}
+				.body {
+					line-height: 1.4rem;
+				}
+			}
+		}
+	}
+}
+
