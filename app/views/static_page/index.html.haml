@@ -1,2 +1,9 @@
 %h1 トップページ
-%p トップページの本文
+%p= link_to "チームの登録", new_team_path
+
+.teams
+  - @teams.each do |team|
+    .team
+      .name= link_to team.name, team_path(id: team.id)
+      .author= team.author + " - " + I18n.l(team.created_at)
+      .discription= team.discription.gsub(/\R/, "<br>").html_safe.truncate(50, omission: '...')

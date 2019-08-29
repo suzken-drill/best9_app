@@ -1,5 +1,6 @@
 class StaticPageController < ApplicationController
   def index
+    @teams = Team.order("created_at DESC").limit(10)
   end
 
   def help

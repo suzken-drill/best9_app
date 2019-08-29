@@ -1,0 +1,25 @@
+ja:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+  system_error: "システムエラーが発生しました！登録をやり直してください"
+  team_entry_ok: "あなたのチームが登録されました"
+  team_name: "チーム名を入力してください"
+  team_name_too_long: "チーム名は255文字以下で入力してください"
+  team_author: "監督名を入力してください"
+  team_author_too_long: "監督名は255文字以下で入力してください"
+  member_order: "打順を設定してください"
+  member_name: "打順%{order}の選手名を入力してください"
+  member_name_too_long: "選手名は255文字以下で入力してください"
+  member_memo_too_long: "メモは255文字以下で入力してください"
+  comment_entry_ng: "コメントの登録に失敗しました！もう一度やり直してください"
+  comment_entry_ok: "コメントの登録が完了しました"
+  comment_name: "名前を入力してください"
+  comment_comment: "コメントを入力してください"

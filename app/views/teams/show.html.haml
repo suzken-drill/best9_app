@@ -1,0 +1,37 @@
+%h1
+  = "チーム名：#{@team.name}"
+  = "　監督名：#{@team.author}"
+
+.members
+  %table
+    %tr
+      %th.order 打順
+      %th.name 選手名
+      %th.memo メモ
+    - @team.members.order(:order).each do |member|
+      %tr
+        %td= "#{member.order}番"
+        %td= member.name
+        %td= member.memo
+
+.discription
+  %h3.head-title チーム紹介 
+  %p= @team.discription.gsub(/\R/, "<br>").html_safe
+
+%hr
+.comments
+  %h4 コメント
+  - @team.comments.each do |comment|
+    %ul.comment
+      %li
+        .head= comment.name + " - " + I18n.l(comment.created_at)
+        .body= comment.comment.gsub(/\R/, "<br>").html_safe
+  %br
+  = form_for @comment, url: comment_path, method: "POST" do |f|
+    .form-group
+      = f.label :name, "名前"
+      = f.text_field :name, class: "form-control"
+    .form-group
+      = f.label :comment, "コメント"
+      = f.text_area :comment, class: "form-control"
+    = f.submit "登　録", class: "btn btn-primary"
