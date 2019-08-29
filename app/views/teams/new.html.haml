@@ -1,0 +1,27 @@
+%h1 新しいチームの登録
+
+= form_for @team_form, url: teams_path, method: "POST" do |f|
+  .form-group
+    = f.label :team_name, "チーム名："
+    = f.text_field :team_name, class: "form-control"
+    = f.label :team_author, "監督名："
+    = f.text_field :team_author, class: "form-control"
+  .form-group
+    %table
+      %tr
+        %th 打順
+        %th 選手名
+        %th メモ
+      - TeamForm::TEAM_MEMBER_NUM.times do |i|
+        %tr
+          %td
+            = "#{@team_form.member_orders[i]}番"
+            = hidden_field_tag "team_form[member_orders][]", @team_form.member_orders[i]
+          %td= text_field_tag "team_form[member_names][]", @team_form.member_names[i], class: "form-control"
+          %td= text_field_tag "team_form[member_memos][]", @team_form.member_memos[i], class: "form-control"
+  .form-group
+    = f.label :team_discription, "チーム紹介"
+    = f.text_area :team_discription, size: "30x10", class: "form-control"
+  = f.submit "登　録", class: "btn btn-primary"
+
+= link_to "戻る", root_path, class: "back"
