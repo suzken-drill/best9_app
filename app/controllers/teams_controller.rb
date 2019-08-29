@@ -40,11 +40,11 @@ class TeamsController < ApplicationController
         end
         team_id = team.id
       rescue => e
-        flash.now[:error] = I18n.t(:system_error)
+        flash.now[:error] = I18n.t(:system_error, scope: :message)
         render action: "show" and return
       end
     end
-    redirect_to team_path(id: team_id), notice: I18n.t(:team_entry_ok)
+    redirect_to team_path(id: team_id), notice: I18n.t(:team_entry_ok, scope: :message)
   end
 
   private

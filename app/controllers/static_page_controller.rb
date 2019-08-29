@@ -1,6 +1,6 @@
 class StaticPageController < ApplicationController
   def index
-    @teams = Team.order("created_at DESC").limit(10)
+    @teams = Team.order("created_at DESC").paginate(page: params[:page], per_page: 20)
   end
 
   def help

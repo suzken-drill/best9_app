@@ -1,3 +1,32 @@
 // Place all the styles related to the StaticPage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "constant";
+
+.contents {
+	.teams {
+		.team {
+			border-bottom: 1px solid $footer-background;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+			.name {
+				font-size: 1.4rem;
+				.like {
+					font-size: 0.9rem;
+					color: $logo-color;
+					padding-left: 1rem;
+				}
+			}
+			.author {
+				font-size: 0.9rem;
+				color: $form-border-color;
+			}
+			.discription {
+			}
+		}
+	}
+	ul.pagination {
+		margin: 10px auto 25px auto;
+	}
+}

@@ -1,6 +1,19 @@
-%h1
+= hidden_field_tag "current_team_id", @team.id
+
+.sns_btn
+  = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&text=ベストナイン:#{@team.name}/監督:#{@team.author}", class: 'twitter', title: 'Twitter', target: '_blank'
+  = link_to 'Facebook', "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=ベストナイン:#{@team.name}/監督:#{@team.author}", class: 'facebook', title: 'Facebook', target: '_blank'
+  = link_to 'LINE', "http://line.me/R/msg/text/?#{request.url}&text=ベストナイン:#{@team.name}/監督:#{@team.author}", class: 'line', title: 'LINE', target: '_blank'
+
+%h2
   = "チーム名：#{@team.name}"
-  = "　監督名：#{@team.author}"
+  .sub-header
+    = "監督名：#{@team.author} / 作成日時：#{I18n.l(@team.created_at)}"
+
+.like_btn.btn{class: @team.already_liked?(current_session_key) ? "already btn-secondary" : "btn-primary"}
+  %i.material-icons thumb_up
+  %span.like_count<>= @team.likes.count
+  件
 
 .members
   %table
@@ -10,9 +23,9 @@
       %th.memo メモ
     - @team.members.order(:order).each do |member|
       %tr
-        %td= "#{member.order}番"
-        %td= member.name
-        %td= member.memo
+        %td.order= "#{member.order}番"
+        %td.name= member.name
+        %td.memo= member.memo
 
 .discription
   %h3.head-title チーム紹介 
@@ -20,13 +33,12 @@
 
 %hr
 .comments
-  %h4 コメント
-  - @team.comments.each do |comment|
-    %ul.comment
+  %h3.head-title コメント
+  %ul.comment
+    - @team.comments.each do |comment|
       %li
         .head= comment.name + " - " + I18n.l(comment.created_at)
         .body= comment.comment.gsub(/\R/, "<br>").html_safe
-  %br
   = form_for @comment, url: comment_path, method: "POST" do |f|
     .form-group
       = f.label :name, "名前"
@@ -34,4 +46,7 @@
     .form-group
       = f.label :comment, "コメント"
       = f.text_area :comment, class: "form-control"
-    = f.submit "登　録", class: "btn btn-primary"
+    .send-btn
+      = f.submit "登　録", class: "btn btn-primary"
+
+= render "layouts/back"

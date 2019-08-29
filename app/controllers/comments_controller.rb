@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
           error_message += "・#{value}<br>"
         end
       end
-      flash.now[:error] = I18n.t(:comment_entry_ng) + "<br>" + error_message
+      flash.now[:error] = I18n.t(:comment_entry_ng, scope: :message) + "<br>" + error_message
   		render template: "team/show" and return
   	end
     redirect_to team_path(id: @team.id)

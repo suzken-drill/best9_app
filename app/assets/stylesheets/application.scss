@@ -15,3 +15,131 @@
  */
 
 @import "bootstrap";
+@import "constant";
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	header.header {
+		text-align: center;
+		padding: 0;
+		margin: 0 0 30px 0;
+		border-bottom: 3px solid $logo-color;
+		#logo{
+			a {
+				font-family: 'Luckiest Guy', cursive;
+				font-size: 4.5rem;
+				color: $logo-color;
+			}
+			a:hover {
+				color: $logo-color;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.contents {
+		padding: 0;
+		margin: 0 0 25px 0;
+		h1 {
+			font-size: 1.6rem;
+			border-bottom: solid 3px $h1-border-color;
+			position: relative;
+			padding-bottom: 8px;
+			margin-bottom: 25px;
+		}
+		h1:after {
+			position: absolute;
+			content: " ";
+			display: block;
+			border-bottom: solid 3px $logo-color;
+			bottom: -3px;
+			width: 10%;
+		}
+		.form-group {
+			label {
+				color: $logo-color;
+			}
+			table {
+				width: 100%;
+				th {
+					font-weight: 400;
+					text-align: center;
+					color: $logo-color;
+				}
+				th.order {
+					width: 8%;
+				}
+				th.name {
+					width: 60%;
+				}
+				th.memo {
+					width: 32%;
+				}
+				td.order {
+					text-align: center;
+					text-decoration: underline;
+					text-decoration-color: $logo-color;
+				}
+			}
+		}
+		form {
+			margin-bottom: 25px;
+			 .send-btn {
+				text-align: center;
+				input {
+					padding: 6px 45px;
+				}
+			}
+		}
+		.back-btn {
+			a {
+				color: $back-btn-color;
+				border: 1px solid $back-btn-color;
+				border-radius: 5px;
+				padding: 5px 15px;
+			}
+			a:hover {
+				color: $white;
+				background-color: $back-btn-color;
+				text-decoration: none;
+			}
+		}
+		.material-icons {
+			font-family: 'Material Icons';
+			font-weight: normal;
+			font-style: normal;
+			font-size: 20px;
+			display: inline-block;
+			vertical-align: text-bottom;
+			width: 1em;
+			height: 1em;
+			line-height: 1;
+			text-transform: none;
+			-webkit-font-smoothing: antialiased;
+			text-rendering: optimizeLegibility;
+			-moz-osx-font-smoothing: grayscale;
+			font-feature-settings: 'liga';
+		}
+
+	}
+
+	footer.footer {
+		background-color: $footer-background;
+		padding: 20px 0;
+		margin: auto 0 0 0;
+		.breadcrumb {
+			background-color: transparent;
+			padding-left: 0;
+			margin-bottom: 0;
+			a {
+				color: $logo-color;
+			}
+		}
+		.copyright {
+			color: $logo-color;
+		}
+	}
+}

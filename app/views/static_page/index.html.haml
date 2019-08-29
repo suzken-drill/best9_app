@@ -1,9 +1,14 @@
-%h1 トップページ
-%p= link_to "チームの登録", new_team_path
+%p= link_to "チームの登録", new_team_path, class: "btn btn-primary"
 
 .teams
   - @teams.each do |team|
     .team
-      .name= link_to team.name, team_path(id: team.id)
+      .name
+        = link_to team.name, team_path(id: team.id)
+        %span.like
+          %i.material-icons thumb_up
+          = team.likes.count_like(team).to_s + "件"
       .author= team.author + " - " + I18n.l(team.created_at)
-      .discription= team.discription.gsub(/\R/, "<br>").html_safe.truncate(50, omission: '...')
+      .discription= team.discription.gsub(/\R/, " ").truncate(50, omission: '...')
+
+= will_paginate @teams, renderer: BootstrapPaginationHelper::LinkRenderer, :previous_label => '&laquo;', :next_label => '&raquo;'
