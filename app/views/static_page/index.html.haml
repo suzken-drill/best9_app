@@ -7,7 +7,10 @@
         = link_to team.name, team_path(id: team.id)
         %span.like
           %i.material-icons thumb_up
-          = team.likes.count_like(team).to_s + "件"
+          = team.likes.count_like(team).to_s + " 件"
+        %span.comment
+          %i.material-icons chat
+          = team.comments.count.to_s + " 件"
       .author= team.author + " - " + I18n.l(team.created_at)
       .discription= team.discription.gsub(/\R/, " ").truncate(50, omission: '...')
 

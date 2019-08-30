@@ -13,8 +13,13 @@
 			.name {
 				font-size: 1.4rem;
 				.like {
-					font-size: 0.9rem;
+					font-size: 1.1rem;
 					color: $logo-color;
+					padding-left: 1rem;
+				}
+				.comment {
+					font-size: 1.1rem;
+					color: $comment-color;
 					padding-left: 1rem;
 				}
 			}
