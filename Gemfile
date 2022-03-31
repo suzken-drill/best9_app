@@ -64,3 +64,4 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap', '>= 4.3.1'
 gem 'redis-rails'
+gem "mimemagic", "~> 0.3.10"
